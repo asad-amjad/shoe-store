@@ -19,22 +19,22 @@ function Header() {
     if (window.scrollY > 200) {
       if (window.scrollY > lastScrollY && !mobileMenu) {
         // if move down > 200
-        setShow('-translate-y-[80px]')
+        setShow("-translate-y-[80px]");
       } else {
         // If move up
-        setShow('shadow-sm')
+        setShow("shadow-sm");
       }
     } else {
-      setShow('translate-y-0')
+      setShow("translate-y-0");
     }
-    setLastScrollY(window.scrollY)
-  }
+    setLastScrollY(window.scrollY);
+  };
   useEffect(() => {
-    window.addEventListener("scroll", controllNavbar)
+    window.addEventListener("scroll", controllNavbar);
     return () => {
-      window.removeEventListener("scroll", controllNavbar)
-    }
-  }, [lastScrollY])
+      window.removeEventListener("scroll", controllNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
     <header
@@ -52,7 +52,7 @@ function Header() {
             setMobileMenu={setMobileMenu}
           />
         )}
-        {console.log(mobileMenu)}
+
         <div className="flex items-center gap-2 text-black">
           {/* Heart Icon start */}
           <div
@@ -72,25 +72,27 @@ function Header() {
           {/* Heart Icon end */}
 
           {/* Cart Icon start */}
-          <div
-            className="w-8 md:w-12 h-8 md:h-12 rounded-full flex 
-          justify-center items-center hover:bg-black/[0.05] cursor-pointer relative"
-          >
-            <BsCart className="text-[15px] md:text-[20px]" />
+          <Link href="/cart">
             <div
-              className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px]
-             rounded-full bg-red-600 absolute top-1 left-7
+              className="w-8 md:w-12 h-8 md:h-12 rounded-full flex 
+          justify-center items-center hover:bg-black/[0.05] cursor-pointer relative"
+            >
+              <BsCart className="text-[15px] md:text-[20px]" />
+              <div
+                className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px]
+              rounded-full bg-red-600 absolute top-1 left-7
               text-white text-[10px] md:text-[12px] flex justify-center 
               items-center px-[2px] md:px-[5px]"
-            >
-              5
+              >
+                5
+              </div>
             </div>
-          </div>
+          </Link>
           {/* Cart Icon end */}
 
           {/* Mobile Icon Start */}
           <div
-            className="w-8 md:w-12 h-8 md:h-12 rounded-full flex 
+            className="w-8 md:w-12 h-8 md:h-12 rounded-full md:hidden flex 
           justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2"
           >
             {mobileMenu ? (

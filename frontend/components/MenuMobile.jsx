@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { Fragment } from "react";
+import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 
 function MenuMobile({ showCatMenu, setShowCatMenu, setMobileMenu }) {
@@ -34,10 +34,14 @@ function MenuMobile({ showCatMenu, setShowCatMenu, setMobileMenu }) {
                   <ul className="bg-black/[0.05] -mx-5 mt-4 -mb-4">
                     {subMenuData.map((subMenu) => {
                       return (
-                        <Link href="/" key={subMenu.id} onClick={() => {
-                          setShowCatMenu(false)
-                          setMobileMenu(false)
-                        }}>
+                        <Link
+                          href="/"
+                          key={subMenu.id}
+                          onClick={() => {
+                            setShowCatMenu(false);
+                            setMobileMenu(false);
+                          }}
+                        >
                           <li className="py-4 px-8 border-t flex justify-between">
                             {subMenu.name}
                             <span className="opacity-50 text-sm">8</span>
@@ -50,7 +54,9 @@ function MenuMobile({ showCatMenu, setShowCatMenu, setMobileMenu }) {
               </li>
             ) : (
               <li className="py-5 px-5 border-b">
-                <Link href={item?.url} onClick={() => setMobileMenu(false)}>{item.name}</Link>
+                <Link href={item?.url} onClick={() => setMobileMenu(false)}>
+                  {item.name}
+                </Link>
               </li>
             )}
           </React.Fragment>

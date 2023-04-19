@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { Fragment } from "react";
+import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 
 function Menu({ showCatMenu, setShowCatMenu }) {
@@ -33,7 +33,11 @@ function Menu({ showCatMenu, setShowCatMenu }) {
                   <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
                     {subMenuData.map((subMenu) => {
                       return (
-                        <Link href="/" key={subMenu.id} onClick={() => setShowCatMenu(false)}>
+                        <Link
+                          href={`/category/${subMenu.id}`}
+                          key={subMenu.id}
+                          onClick={() => setShowCatMenu(false)}
+                        >
                           <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md">
                             {subMenu.name}
                             <span className="opacity-50 text-sm">8</span>
