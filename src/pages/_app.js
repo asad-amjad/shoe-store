@@ -1,4 +1,5 @@
 import Head from "next/head";
+import NextNProgress from 'nextjs-progressbar';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Header />
+      <NextNProgress color="#2A2F4F" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} />
       <Component {...pageProps} />
       <Footer />
     </>
